@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>test</title>
+	<meta name="author" content="Iori" />
+	<!-- Date: 2013-07-16 -->
+	<link href="jquery.slider.css" type="text/css" rel="stylesheet"/>
+	<script src="jquery-1.3.1.min.js"></script>
+	<script src="first.js"></script>
+	<script src="jQuery_jSlider.js"></script>
+	<script>
+	$(function(){
+		$('#btn').click(function() {
+			$("#firstPlug").fade();
+		});
+		
+		$('#slidercontainer1').jslider({
+                size: { barWidth: 400, sliderWidth: 5 },
+                onChanging: function(percentage, e) {
+                    $('#myFont').css('font-size', maxFont * percentage);
+                    window.console && console.log('percentage: %s', percentage);
+                }
+            });
+		
+	});
+	</script>
+</head>
+<body>
+	<div id='firstPlug'>12345</div>
+	<button id="btn">fade</button>
+	
+	<fieldset style="width:420px">
+    <legend>Using Slider to change the font-size(Default Skin)</legend>
+    <div id="myFont">Hello, world!</div>
+    <div id="slidercontainer1" class="slidercontainer"></div>
+</fieldset>
+</body>
+</html>
+
