@@ -38,7 +38,7 @@
     						}
     					});
     		
-//    		init();
+//    		init.call(this);
     		$(this).click(function(){
     			 $html.toggle();
     		});
