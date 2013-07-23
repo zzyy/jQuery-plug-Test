@@ -11,27 +11,28 @@
 	<script src="jquery-1.9.1.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="jButton.js"></script>
-	<script src='plugin/jSelect.js'></script>
+	<script src='plugin/validator2.js'></script>
 	<script>
 	$(function(){
-		$(".jbutton").jbuttons({
-			data:['1','2','3','4'],
-			dataDefault:[3,4]
+		$(".validator").validator({
+			errorHtml:'<strong>error</strong>',
+			errorHtmlPlace:'$(this).siblings("span")',
+			valuePosition:'$(this).val()',
+			errorCss:{background:'red'},
+			Regex:/^[1-9]\d*$/
 		});
-		
-		$("input").jbuttons({
-			data:['Y','M','H','D']
-		});
-		
-		$('.jselect').jSelect();
 	});
 	</script>
 </head>
 <body>
 	<div>
 		<button class="btn">1</button>
+		<input class='validator' type="text" />
+		<span id="error"></span>
+		<input class='validator' type="text" />
 	</div>
 	<table class="editable table">
+		
 		<tr>
 			<td><span class='jbutton'>123456</span></td>
 			<td class="editable plugin shiftsDropdown idmap"><div class='jselect'><span>123456</span></div></td>

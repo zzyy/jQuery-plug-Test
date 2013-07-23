@@ -113,7 +113,7 @@
     		enable:true,
     		show: function(){},
     		hide: function(){},
-    		click: function(e){alert(e.target.html())}
+    		click: function(e){alert($(e.target).html())}
 		}, option);
 		
 		// this为调用函数的jquery对象数组
