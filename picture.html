@@ -3,40 +3,69 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>RunJS</title>
-	<script id="jquery_183" type="text/javascript" class="library" src="js/jquery-1.9.1.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/picture.css" />
+		<script id="jquery_183" type="text/javascript" class="library" src="js/jquery-1.9.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/picture.css" />
 	</head>
 	<body>
 		<div id='content'>
-			<div id='1' class='rightimg'>
-				123
-			</div>
-			<div id='2' class="centerimg" style=''>
-				asd
-			</div>
-			<div id='3' class='leftimg'>
-				123
-			</div>
+			<div id='0' class='rightimg'>123</div>
+			<div id='1' class="centerimg" style=''>asd</div>
+			<div id='2' class='leftimg'>123	</div>
+			<div id='3' class='' style="left: ">456	</div>
+			<div id='4' class=''>789	</div>
+			<div id='5' class=''>qwe	</div>
+			<div id='6' class=''>zxc	</div>
 		</div>
 	</body>
 	<script type="text/javascript">
-		function moveToNext(No){
-			imgLength=$('#content').children().length;
-			imgNo = No||$('.centerimg').attr('id')+1;
+		function moveToNext(No) {
+			var imgLength = $('#content').children().length;
+			var imgNo = No || parseInt($('.centerimg').attr('id')) + 1;
+// alert(imgLength+' '+imgNo);
+			for(var i=0; i<imgLength; i++){
+				var left=140+(i-imgNo)*140 +'px';
+				
+				switch(i){
+					case imgNo:
+						$('#'+i).animate({
+							left:'140px',
+							margin:'0',
+							width:'280px',
+							height:'209px',
+						},600).addClass('centerimg');
+						break;
+					default:
+						// alert(left);
+							$('#'+i).animate({
+								left:left,
+								width:'140px',
+								height:'104px'
+							},600);
+				}
+			};
 			
-			$('.rightimg').animate({left:'-=140px'},600);
-			
-			$('.centerimg').animate({width:'140px',height:'104px',top:'45px',left:'0px'},600)
-				.addClass('rightimg').removeClass('centerimg');
-			
-			$('.leftimg').animate({width:'280px',height:'209px',top:'0px',left:'140px'},600)
-				.addClass('centerimg').removeClass('leftimg');
+			// $('.rightimg').animate({
+				// left : '-=140px'
+			// }, 600);
+// 
+			// $('.centerimg').animate({
+				// width : '140px',
+				// height : '104px',
+				// top : '45px',
+				// left : '0px'
+			// }, 600).addClass('rightimg').removeClass('centerimg');
+// 
+			// $('.leftimg').animate({
+				// width : '280px',
+				// height : '209px',
+				// top : '0px',
+				// left : '140px'
+			// }, 600).addClass('centerimg').removeClass('leftimg');
 		};
 
-		$(function(){
-			
-			
+		$(function() {
+
 		});
-		
+
 	</script>
 </html>

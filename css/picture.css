@@ -19,9 +19,15 @@
 	border:1px dashed red;
 	//background-color:#c0c0c0;
 }
-.rightimg img{
+div div{
+	position:absolute;
+	left:560px;
+	top:45px;
+	margin:0;
+	padding:0;
 	width:140px;
 	height:104px;
+	border:1px dashed red;
 }
 
 .centerimg{
