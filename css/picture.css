@@ -1,0 +1,47 @@
+#content{
+	position:relative;
+	margin:0;
+	padding:0;
+	width:560px;
+	height:280px;
+	overflow: hidden;
+	
+}
+
+.rightimg{
+	position:absolute;
+	left:0;
+	top:45px;
+	margin:0;
+	padding:0;
+	width:140px;
+	height:104px;
+	border:1px dashed red;
+	//background-color:#c0c0c0;
+}
+.rightimg img{
+	width:140px;
+	height:104px;
+}
+
+.centerimg{
+	position:absolute;
+	left:140px;
+	margin:0;
+	width:280px;
+	height:209px;
+	border:1px dashed red;
+	//background:url('http://sandbox.runjs.cn/uploads/rs/4/pfpcon3m/2.jpg') no-repeat;
+	//background-color:#c0c0c0;
+}	
+.leftimg{
+	position:absolute;
+	left:420px;
+	top:45px;
+	margin:0;
+	padding:0;
+	width:140px;
+	height:104px;
+	border:1px dashed red;
+	//background-color:#c0c0c0;
+}

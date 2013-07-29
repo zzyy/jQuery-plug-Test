@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>RunJS</title>
+	<script id="jquery_183" type="text/javascript" class="library" src="js/jquery-1.9.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/picture.css" />
+	</head>
+	<body>
+		<div id='content'>
+			<div id='1' class='rightimg'>
+				123
+			</div>
+			<div id='2' class="centerimg" style=''>
+				asd
+			</div>
+			<div id='3' class='leftimg'>
+				123
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function moveToNext(No){
+			imgLength=$('#content').children().length;
+			imgNo = No||$('.centerimg').attr('id')+1;
+			
+			$('.rightimg').animate({left:'-=140px'},600);
+			
+			$('.centerimg').animate({width:'140px',height:'104px',top:'45px',left:'0px'},600)
+				.addClass('rightimg').removeClass('centerimg');
+			
+			$('.leftimg').animate({width:'280px',height:'209px',top:'0px',left:'140px'},600)
+				.addClass('centerimg').removeClass('leftimg');
+		};
+
+		$(function(){
+			
+			
+		});
+		
+	</script>
+</html>
