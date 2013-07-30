@@ -11,56 +11,65 @@
 			<div id='0' class='rightimg'>123</div>
 			<div id='1' class="centerimg" style=''>asd</div>
 			<div id='2' class='leftimg'>123	</div>
-			<div id='3' class='' style="left: ">456	</div>
-			<div id='4' class=''>789	</div>
-			<div id='5' class=''>qwe	</div>
-			<div id='6' class=''>zxc	</div>
+<!--			<div id='3' class='' style="position:absolute;left:560px;top:45px;width:140px;height:104px">456	</div>
+			<div id='4' class='' style="position:absolute;left:560px;top:45px;width:140px;height:104px">789	</div>
+			<div id='5' class='' style="position:absolute;left:560px;top:45px;width:140px;height:104px">qwe	</div>
+-->
 		</div>
 	</body>
 	<script type="text/javascript">
-		function moveToNext(No) {
+		function moveTo(No) {
 			var imgLength = $('#content').children().length;
-			var imgNo = No || parseInt($('.centerimg').attr('id')) + 1;
+			var imgNo = No;
 // alert(imgLength+' '+imgNo);
 			for(var i=0; i<imgLength; i++){
-				var left=140+(i-imgNo)*140 +'px';
-				
-				switch(i){
-					case imgNo:
+				if(i == imgNo){
+					$('#'+i).animate({
+						left:'140px',
+						top:'0px',
+						margin:'0',
+						width:'280px',
+						height:'209px',
+					},600).addClass('centerimg');
+				}else if(Math.abs(i-imgNo)<=imgLength/2){
+					if(i-imgNo<0){
+						var left=140+(i-imgNo)*140 +'px';
 						$('#'+i).animate({
-							left:'140px',
-							margin:'0',
-							width:'280px',
-							height:'209px',
-						},600).addClass('centerimg');
-						break;
-					default:
-						// alert(left);
-							$('#'+i).animate({
-								left:left,
-								width:'140px',
-								height:'104px'
-							},600);
+							left:left,
+							top:'45px',
+							width:'140px',
+							height:'104px'
+						},600);
+					}else{
+						var left=420+(i-imgNo-1)*140 +'px';
+						$('#'+i).animate({
+							left:left,
+							top:'45px',
+							width:'140px',
+							height:'104px'
+						},600);
+					}
+				}else{
+					if(i-imgNo<0){
+						var left=420+(i-imgNo-1+imgLength)*140 +'px';
+						$('#'+i).animate({
+							left:left,
+							top:'45px',
+							width:'140px',
+							height:'104px'
+						},600);
+					}else{
+						var left=140+(i-imgNo-imgLength)*140 +'px';
+						$('#'+i).animate({
+							left:left,
+							top:'45px',
+							width:'140px',
+							height:'104px'
+						},600);
+					}
 				}
 			};
 			
-			// $('.rightimg').animate({
-				// left : '-=140px'
-			// }, 600);
-// 
-			// $('.centerimg').animate({
-				// width : '140px',
-				// height : '104px',
-				// top : '45px',
-				// left : '0px'
-			// }, 600).addClass('rightimg').removeClass('centerimg');
-// 
-			// $('.leftimg').animate({
-				// width : '280px',
-				// height : '209px',
-				// top : '0px',
-				// left : '140px'
-			// }, 600).addClass('centerimg').removeClass('leftimg');
 		};
 
 		$(function() {

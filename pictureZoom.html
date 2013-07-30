@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>zoom</title>
+		<script id="jquery" type="text/javascript" class="library" src="js/jquery-1.9.1.js"></script>
+	</head>
+	<body>
+		<div id='content' style="width: 80%;margin: 0 auto; position: relative;">
+			<img src="http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/3b.jpg" width="140px" height="140px" data-target="zoomTarget" style="border: dashed 1px red"/>
+			1234
+			<div id="zoomTarget" style="width: 140px;height: 140px;overflow: hidden;position: absolute;left: 143px; display: inline-block; visibility: hidden">
+				<img src="http://sandbox.runjs.cn/uploads/rs/392/w5zrkmek/3b.jpg"/>
+			</div>
+		</div>
+	</body>
+	<script>
+		$('img[data-target]').on({
+			mouseover:function(){
+				var $target=$('#' + $(this).attr('data-target'));
+				$target.css('visibility','visible');
+			},
+			mouseout:function(){
+				var $target=$('#' + $(this).attr('data-target'));
+				$target.css('visibility','hidden');
+			},
+			mousemove:function(e){
+				console.log(e.clientX+'_'+e.clientY+'-'+e.pageX+'_'+e.pageY);
+				var $target=$('#' + $(this).attr('data-target'));
+				var offset= $(this).offset();
+				var eLeft = e.clientX-offset.left;
+				var eTop = e.clientY-offset.top;
+				var tLeft = 800/140*eLeft;
+				var tTop = 800/140*eTop;
+				$target.scrollLeft(tLeft-70);
+				$target.scrollTop(tTop-70);
+				console.log(tLeft+'-'+tTop+'..........'+eLeft+'-'+eTop);
+			}
+		});
+		
+	</script>
+</html>
