@@ -1,0 +1,87 @@
+<!DOCTYPE >
+<html>
+<head>
+<style>
+body{
+	font-size:62.5%;
+}
+.warp{
+	position:relative;
+	width:50%;
+	left:50%;
+	margin-left: -25%;
+}
+.shade{
+	position:fixed;
+	display:none;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.7;
+	filter:alpha(opacity=0.7);
+	z-index:999;
+}
+.shade div{
+	position:absolute;
+	overflow:auto;
+	padding:0;
+	border: #C0C0C0 dashed 1px;
+}
+.shade div a{
+	position: absolute;
+	display:block;
+	right:0px;
+	top:0px;
+	width:32px;
+	height:32px;
+	background: url(http://sandbox.runjs.cn/uploads/rs/95/65is2a4u/close.png) no-repeat;	
+}
+.shade div img{
+	padding: o;
+	margin:0;
+	
+}
+</style>
+<script src="js/jquery-1.9.1.js"></script>
+</head>
+<body>
+<div class='warp'>
+<img src="http://sandbox.runjs.cn/uploads/rs/95/65is2a4u/1.png" style='width:14em;height:14em'/>
+</div>
+<div class='shade'>
+<div>
+	<a></a>
+<img id='display'/>
+</div>
+</div>
+<script>
+	$(function(){
+		
+		$('.warp img').on('dblclick',function(){
+			var src= this.src;
+			var img = new Image();
+			img.src=src;
+			var width=img.width;
+			var height=img.height;
+			var imgView = document.getElementById('display');
+			imgView.src=src;
+			$('.shade').find('div').css({
+				width:width +'px',
+				height:height +'px',
+				left:($(window).width()-width)/2 +'px',
+				top:($(window).height()-height)/2 +'px'
+			});
+			
+			$('.shade').show();
+		});
+		
+		$('.shade div a').click(function(){
+			$(this).closest('.shade').hide();
+		});
+		
+	})
+</script>
+<body >
+</html>
