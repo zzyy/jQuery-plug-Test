@@ -1,7 +1,7 @@
 <!DOCTYPE >
 <html>
 <head>
-	<script src="js/jquery-1.9.1.js\"></script>
+	<script src="js/jquery-1.9.1.js"></script>
 	<style>
 		body{
 			margin:10px 5px 10xp 5px;
@@ -25,7 +25,7 @@
 			border: 1px dashed red;
 			padding: 15px;
 			background: #F2DEDE;
-			overflow: auto;
+			overflow: hidden;
 		}
 		#test p{
 			display:block;
@@ -49,7 +49,6 @@
 		<div id='test'>
             <p>单骑奉月光<br/>欲观花 午时的香 <br/>却芬芳带伤 <br/>记相传 跋涉万水<br/>流连的过往<br/>怎奈作 一滴苦水<br/>在枕边流淌<br/>葬爱化成蝶 相见断桥边<br/>亦真亦幻的情节 梦回子时曰 <br/>琴声的忏悔和冰冷的眼泪 <br/>华丽的咒语 完美的沉睡 <br/>前世的宿命在今夜里轮回 <br/>弹指间 路转峰回 <br/>眼看狂风又乍起是狼族的呼唤 <br/>刺客的嘴脸 渔人的世界 <br/>迷失的荒野与真爱的纠结 <br/>记载着 子时 狂澜 <br/>记相传 跋涉万水 <br/>流连的过往 　<br/>怎奈作 一滴苦水 <br/>在枕边流淌 　<br/>葬爱化成蝶 相见断桥边<br/>亦真亦幻的情节 梦回子时曰 <br/>琴声的忏悔和冰冷的眼泪<br/>华丽的咒语 完美的沉睡 <br/>前世的宿命在今夜里轮回 　<br/>弹指间 路转峰回 <br/>眼看狂风又乍起是狼族的呼唤 <br/>刺客的嘴脸 渔人的世界<br/>迷失的荒野与真爱的纠结 <br/>记载着 子时 狂澜<br/></p>
 		</div>
-		
 	<div class='data'>
 		<table>
 			<th>div</th>
@@ -61,6 +60,34 @@
 		
 	</div>
 	
+	<script>
+	JL={
+		offset:function(ele){
+			var o={top:0,left:0};
+			o.top = ele.offsetTop;
+			o.left = ele.offsetLeft;
+			var curr = ele.offsetParent;
+			while( curr !==null){
+				o.top += curr.offsetTop;
+				o.left += curr.offsetLeft;
+				curr = curr.offsetParent
+			}
+			
+			return o;
+		}
+	}
 	
+	String.prototype.trim2 = function() {
+	  var str = this,
+	  str = str.replace(/^\s+/, '');
+	  for (var i = str.length - 1; i >= 0; i--) {
+	    if (/\S/.test(str.charAt(i))) {
+	      str = str.substring(0, i + 1);
+	      break;
+	    }
+	  }
+	  return str;
+	}
+	</script>
 </body>
 </html>
