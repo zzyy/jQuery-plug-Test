@@ -74,9 +74,11 @@ var
 	// A simple way to check for HTML strings
 	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
 	// Strict HTML recognition (#11290: must start with <)
+	//#id格式(mathc[2]) 或者<tag>格式(match[1])  
 	rquickExpr = /^(?:(<[\w\W]+>)[^>]*|#([\w-]*))$/,
 
 	// Match a standalone tag
+	//单独的标签<a></a> 或者 <br />
 	rsingleTag = /^<(\w+)\s*\/?>(?:<\/\1>|)$/,
 
 	// JSON RegExp
@@ -130,10 +132,11 @@ jQuery.fn = jQuery.prototype = {
 
 		// Handle HTML strings
 		if ( typeof selector === "string" ) {
+			//获得<tag> html格式的元素
 			if ( selector.charAt(0) === "<" && selector.charAt( selector.length - 1 ) === ">" && selector.length >= 3 ) {
 				// Assume that strings that start and end with <> are HTML and skip the regex check
 				match = [ null, selector, null ];
-
+				
 			} else {
 				match = rquickExpr.exec( selector );
 			}
